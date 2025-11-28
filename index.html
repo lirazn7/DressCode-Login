@@ -1,0 +1,1372 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>DressCode - Rede Social de Moda Mobile</title>
+    <link rel="stylesheet" href="assets/css/style-mobile.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <meta name="theme-color" content="#8B5CF6">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+</head>
+<body>
+    <!-- Mobile Header -->
+    <header class="mobile-header">
+        <div class="header-content">
+            <div class="logo">
+                <i class="fas fa-tshirt"></i>
+                <span>DressCode</span>
+            </div>
+            <button class="menu-toggle" id="menuToggle">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <nav class="mobile-nav hidden" id="mobileNav">
+            <a href="#" class="nav-item"><i class="fas fa-home"></i> Início</a>
+            <a href="#" class="nav-item"><i class="fas fa-search"></i> Explorar</a>
+            <a href="#" class="nav-item"><i class="fas fa-fire"></i> Tendências</a>
+            <a href="#" class="nav-item"><i class="fas fa-users"></i> Perfis</a>
+        </nav>
+    </header>
+
+    <!-- Mobile Main Container -->
+    <main class="mobile-main">
+        <!-- Welcome Screen -->
+        <section class="welcome-screen" id="welcomeScreen">
+            <div class="welcome-hero">
+                <div class="hero-icon">
+                    <i class="fas fa-shopping-bag"></i>
+                </div>
+                <h1 class="hero-title">DressCode</h1>
+                <p class="hero-subtitle">Sua rede social de moda</p>
+                <p class="hero-description">Compartilhe seu estilo, descubra tendências e conecte-se com fashionistas</p>
+            </div>
+            
+            <div class="welcome-actions">
+                <button class="btn-primary" id="btnCriarConta">
+                    <i class="fas fa-user-plus"></i>
+                    Criar Conta
+                </button>
+                <button class="btn-secondary" id="btnLogin">
+                    <i class="fas fa-sign-in-alt"></i>
+                    Já tenho conta
+                </button>
+            </div>
+            
+            <div class="welcome-features">
+                <div class="feature-item">
+                    <i class="fas fa-palette"></i>
+                    <span>Compartilhe seu estilo</span>
+                </div>
+                <div class="feature-item">
+                    <i class="fas fa-heart"></i>
+                    <span>Descubra inspirações</span>
+                </div>
+                <div class="feature-item">
+                    <i class="fas fa-users"></i>
+                    <span>Conecte-se</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Mobile Registration -->
+        <section class="registration-screen hidden" id="registrationScreen">
+            <!-- Mobile Header with Back Button -->
+            <div class="screen-header">
+                <button class="btn-back" id="btnVoltar">
+                    <i class="fas fa-arrow-left"></i>
+                </button>
+                <h2 class="screen-title">Criar Conta</h2>
+                <div class="step-counter">
+                    <span id="currentStep">1</span>/<span id="totalSteps">4</span>
+                </div>
+            </div>
+            
+            <!-- Mobile Progress Bar -->
+            <div class="mobile-progress">
+                <div class="progress-track">
+                    <div class="progress-fill" id="mobileProgressFill"></div>
+                </div>
+            </div>
+            
+            <!-- Registration Form -->
+            <form class="mobile-form" id="mobileForm">
+                
+                <!-- Step 1: Basic Info -->
+                <div class="form-step active" data-step="1">
+                    <div class="step-content">
+                        <h3 class="step-title">Seus dados básicos</h3>
+                        <p class="step-subtitle">Vamos começar com o essencial</p>
+                        
+                        <div class="input-group">
+                            <label for="username">Nome de usuário</label>
+                            <div class="input-wrapper">
+                                <i class="fas fa-at"></i>
+                                <input type="text" id="username" placeholder="seunome_style" required>
+                            </div>
+                            <div class="input-feedback" id="usernameFeedback"></div>
+                        </div>
+                        
+                        <div class="input-group">
+                            <label for="email">E-mail</label>
+                            <div class="input-wrapper">
+                                <i class="fas fa-envelope"></i>
+                                <input type="email" id="email" placeholder="seu@email.com" required>
+                            </div>
+                            <div class="input-feedback" id="emailFeedback"></div>
+                        </div>
+                        
+                        <div class="input-group">
+                            <label for="password">Senha</label>
+                            <div class="input-wrapper">
+                                <i class="fas fa-lock"></i>
+                                <input type="password" id="password" placeholder="Mínimo 8 caracteres" required>
+                                <button type="button" class="toggle-password" id="togglePassword">
+                                    <i class="fas fa-eye"></i>
+                                </button>
+                            </div>
+                            <div class="input-feedback" id="passwordFeedback"></div>
+                        </div>
+                        
+                        <div class="input-group">
+                            <label for="confirmPassword">Confirmar senha</label>
+                            <div class="input-wrapper">
+                                <i class="fas fa-lock"></i>
+                                <input type="password" id="confirmPassword" placeholder="Digite a senha novamente" required>
+                            </div>
+                            <div class="input-feedback" id="confirmPasswordFeedback"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Step 2: Personal Info -->
+                <div class="form-step" data-step="2">
+                    <div class="step-content">
+                        <h3 class="step-title">Sobre você</h3>
+                        <p class="step-subtitle">Nos conte mais sobre você</p>
+                        
+                        <div class="input-group">
+                            <label for="nomeCompleto">Nome completo</label>
+                            <div class="input-wrapper">
+                                <i class="fas fa-user"></i>
+                                <input type="text" id="nomeCompleto" placeholder="Seu nome completo" required>
+                            </div>
+                        </div>
+                        
+                        <div class="input-group">
+                            <label for="dataNascimento">Data de nascimento</label>
+                            <div class="input-wrapper">
+                                <i class="fas fa-calendar"></i>
+                                <input type="date" id="dataNascimento" required>
+                            </div>
+                        </div>
+                        
+                        <div class="input-group">
+                            <label for="genero">Como você se identifica</label>
+                            <select id="genero" class="mobile-select">
+                                <option value="">Selecione...</option>
+                                <option value="feminino">Feminino</option>
+                                <option value="masculino">Masculino</option>
+                                <option value="nao-binario">Não-binário</option>
+                                <option value="prefiro-nao-informar">Prefiro não informar</option>
+                            </select>
+                        </div>
+                        
+                        <div class="input-group">
+                            <label for="cep">CEP</label>
+                            <div class="input-wrapper">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <input type="text" id="cep" placeholder="12345-678" maxlength="9">
+                                <div class="loading-spinner hidden" id="cepLoading">
+                                    <i class="fas fa-spinner fa-spin"></i>
+                                </div>
+                            </div>
+                            <div class="input-feedback" id="cepFeedback"></div>
+                        </div>
+                        
+                        <div class="endereco-fields">
+                            <div class="input-group">
+                                <input type="text" id="cidade" placeholder="Cidade" readonly>
+                            </div>
+                            <div class="input-group">
+                                <input type="text" id="estado" placeholder="Estado" readonly>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Step 3: Style -->
+                <div class="form-step" data-step="3">
+                    <div class="step-content">
+                        <h3 class="step-title">Seu estilo</h3>
+                        <p class="step-subtitle">Que estilos combinam com você?</p>
+                        
+                        <div class="styles-grid" id="stylesGrid">
+                            <div class="style-card" data-style="casual">
+                                <i class="fas fa-tshirt"></i>
+                                <span>Casual</span>
+                            </div>
+                            <div class="style-card" data-style="elegante">
+                                <i class="fas fa-user-tie"></i>
+                                <span>Elegante</span>
+                            </div>
+                            <div class="style-card" data-style="boho">
+                                <i class="fas fa-leaf"></i>
+                                <span>Boho</span>
+                            </div>
+                            <div class="style-card" data-style="streetwear">
+                                <i class="fas fa-skating"></i>
+                                <span>Streetwear</span>
+                            </div>
+                            <div class="style-card" data-style="vintage">
+                                <i class="fas fa-history"></i>
+                                <span>Vintage</span>
+                            </div>
+                            <div class="style-card" data-style="minimalista">
+                                <i class="fas fa-circle"></i>
+                                <span>Minimalista</span>
+                            </div>
+                        </div>
+                        
+                        <div class="input-group">
+                            <label>Marcas favoritas (máx. 5)</label>
+                            <div class="tags-container">
+                                <div class="tags-list" id="tagsList"></div>
+                                <div class="input-wrapper">
+                                    <input type="text" id="marcaInput" placeholder="Digite uma marca..." maxlength="30">
+                                    <button type="button" class="btn-add-tag" id="btnAddTag">
+                                        <i class="fas fa-plus"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="tag-counter">
+                                <span id="tagCounter">0</span>/5 marcas
+                            </div>
+                        </div>
+                        
+                        <div class="input-group">
+                            <label>Instagram (opcional)</label>
+                            <div class="input-wrapper">
+                                <i class="fab fa-instagram"></i>
+                                <input type="text" id="instagram" placeholder="@seuusuario">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Step 4: Finish -->
+                <div class="form-step" data-step="4">
+                    <div class="step-content">
+                        <h3 class="step-title">Quase pronto!</h3>
+                        <p class="step-subtitle">Últimos ajustes</p>
+                        
+                        <div class="privacy-options">
+                            <div class="option-card">
+                                <div class="option-header">
+                                    <h4>Privacidade do perfil</h4>
+                                </div>
+                                <div class="radio-group">
+                                    <label class="radio-option">
+                                        <input type="radio" name="privacidade" value="publico" checked>
+                                        <span class="radio-custom"></span>
+                                        <div class="option-text">
+                                            <strong>Público</strong>
+                                            <p>Todos podem ver seu perfil</p>
+                                        </div>
+                                    </label>
+                                    <label class="radio-option">
+                                        <input type="radio" name="privacidade" value="privado">
+                                        <span class="radio-custom"></span>
+                                        <div class="option-text">
+                                            <strong>Privado</strong>
+                                            <p>Apenas seguidores aprovados</p>
+                                        </div>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="terms-section">
+                            <label class="checkbox-option">
+                                <input type="checkbox" id="aceitarTermos" required>
+                                <span class="checkbox-custom"></span>
+                                <span class="terms-text">
+                                    Aceito os <a href="#" class="link-primary">Termos de Uso</a> 
+                                    e a <a href="#" class="link-primary">Política de Privacidade</a>
+                                </span>
+                            </label>
+                        </div>
+                        
+                        <div class="final-message">
+                            <i class="fas fa-heart"></i>
+                            <p>Bem-vindo à comunidade DressCode!</p>
+                        </div>
+                    </div>
+                </div>
+            </form>
+            
+            <!-- Mobile Navigation Buttons -->
+            <div class="mobile-actions">
+                <button type="button" class="btn-action btn-back-step hidden" id="btnPrevious">
+                    <i class="fas fa-chevron-left"></i>
+                    Voltar
+                </button>
+                <button type="button" class="btn-action btn-next" id="btnNext">
+                    Próximo
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+                <button type="button" class="btn-action btn-finish hidden" id="btnFinish">
+                    <i class="fas fa-check"></i>
+                    Finalizar
+                </button>
+            </div>
+        </section>
+        
+        <!-- Success Screen -->
+        <section class="success-screen hidden" id="successScreen">
+            <div class="success-content">
+                <div class="success-icon">
+                    <i class="fas fa-check-circle"></i>
+                </div>
+                <h2 class="success-title">Conta criada!</h2>
+                <p class="success-message">Bem-vindo ao DressCode! Sua jornada fashion começa agora.</p>
+                
+                <div class="user-preview" id="userPreview">
+                    <!-- Preview será preenchido dinamicamente -->
+                </div>
+                
+                <div class="success-actions">
+                    <button class="btn-primary" id="btnStartExploring">
+                        <i class="fas fa-rocket"></i>
+                        Começar a explorar
+                    </button>
+                    <button class="btn-secondary" id="btnDownloadData">
+                        <i class="fas fa-download"></i>
+                        Baixar meus dados
+                    </button>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <!-- Bottom Navigation (será usado futuramente) -->
+    <nav class="bottom-nav hidden">
+        <a href="#" class="nav-item active">
+            <i class="fas fa-home"></i>
+            <span>Início</span>
+        </a>
+        <a href="#" class="nav-item">
+            <i class="fas fa-search"></i>
+            <span>Buscar</span>
+        </a>
+        <a href="#" class="nav-item">
+            <i class="fas fa-plus-circle"></i>
+            <span>Postar</span>
+        </a>
+        <a href="#" class="nav-item">
+            <i class="fas fa-heart"></i>
+            <span>Curtidas</span>
+        </a>
+        <a href="#" class="nav-item">
+            <i class="fas fa-user"></i>
+            <span>Perfil</span>
+        </a>
+    </nav>
+                                <div class="step-icon"><i class="fas fa-share-alt"></i></div>
+                                <span>Redes</span>
+                            </div>
+                            <div class="step" data-step="6">
+                                <div class="step-icon"><i class="fas fa-cog"></i></div>
+                                <span>Preferências</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Form Container -->
+                    <div class="form-container">
+                        <form id="registrationForm">
+                            <!-- Step 1: Identidade -->
+                            <div class="form-step active" data-step="1">
+                                <h2 class="step-title">Sua Identidade no DressCode</h2>
+                                <p class="step-description">Escolha como você será conhecido na plataforma</p>
+                                
+                                <div class="form-group">
+                                    <label for="username" class="required">Nome de usuário</label>
+                                    <div class="input-container">
+                                        <input type="text" id="username" name="username" required>
+                                        <div class="input-feedback"></div>
+                                    </div>
+                                    <div class="username-suggestions hidden" id="usernameSuggestions">
+                                        <p>Sugestões disponíveis:</p>
+                                        <div class="suggestions-list"></div>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="email" class="required">E-mail</label>
+                                    <div class="input-container">
+                                        <input type="email" id="email" name="email" required>
+                                        <div class="input-feedback"></div>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="password" class="required">Senha</label>
+                                    <div class="input-container">
+                                        <input type="password" id="password" name="password" required>
+                                        <div class="input-feedback"></div>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="confirmPassword" class="required">Confirmar senha</label>
+                                    <div class="input-container">
+                                        <input type="password" id="confirmPassword" name="confirmPassword" required>
+                                        <div class="input-feedback"></div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Step 2: Dados Pessoais -->
+                            <div class="form-step" data-step="2">
+                                <h2 class="step-title">Dados Pessoais</h2>
+                                <p class="step-description">Nos conte um pouco sobre você</p>
+
+                                <div class="form-group">
+                                    <label for="nomeCompleto" class="required">Nome completo</label>
+                                    <div class="input-container">
+                                        <input type="text" id="nomeCompleto" name="nomeCompleto" required>
+                                        <div class="input-feedback"></div>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="dataNascimento" class="required">Data de nascimento</label>
+                                    <div class="input-container">
+                                        <input type="date" id="dataNascimento" name="dataNascimento" required>
+                                        <div class="input-feedback"></div>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="genero">Gênero</label>
+                                    <select id="genero" name="genero">
+                                        <option value="">Selecione...</option>
+                                        <option value="feminino">Feminino</option>
+                                        <option value="masculino">Masculino</option>
+                                        <option value="nao-binario">Não-binário</option>
+                                        <option value="prefiro-nao-informar">Prefiro não informar</option>
+                                    </select>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="telefone">Telefone</label>
+                                    <div class="input-container">
+                                        <input type="tel" id="telefone" name="telefone" placeholder="(11) 99999-9999">
+                                        <div class="input-feedback"></div>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="bio">Biografia</label>
+                                    <textarea id="bio" name="bio" placeholder="Conte um pouco sobre seu estilo e paixão pela moda..." maxlength="300"></textarea>
+                                    <small class="char-counter">0/300 caracteres</small>
+                                </div>
+                            </div>
+
+                            <!-- Step 3: Endereço -->
+                            <div class="form-step" data-step="3">
+                                <h2 class="step-title">Endereço</h2>
+                                <p class="step-description">Para conectar você com a moda local</p>
+
+                                <div class="form-group">
+                                    <label for="cep" class="required">CEP</label>
+                                    <div class="input-container">
+                                        <input type="text" id="cep" name="cep" placeholder="00000-000" required>
+                                        <div class="input-feedback"></div>
+                                        <div class="loading-spinner hidden" id="cepLoading">
+                                            <i class="fas fa-spinner fa-spin"></i>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="logradouro" class="required">Logradouro</label>
+                                    <div class="input-container">
+                                        <input type="text" id="logradouro" name="logradouro" required readonly>
+                                        <div class="input-feedback"></div>
+                                    </div>
+                                </div>
+
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="numero">Número</label>
+                                        <input type="text" id="numero" name="numero">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="complemento">Complemento</label>
+                                        <input type="text" id="complemento" name="complemento">
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="bairro" class="required">Bairro</label>
+                                    <div class="input-container">
+                                        <input type="text" id="bairro" name="bairro" required readonly>
+                                        <div class="input-feedback"></div>
+                                    </div>
+                                </div>
+
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="cidade" class="required">Cidade</label>
+                                        <div class="input-container">
+                                            <input type="text" id="cidade" name="cidade" required readonly>
+                                            <div class="input-feedback"></div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="estado" class="required">Estado</label>
+                                        <div class="input-container">
+                                            <input type="text" id="estado" name="estado" required readonly>
+                                            <div class="input-feedback"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Step 4: Estilo Pessoal -->
+                            <div class="form-step" data-step="4">
+                                <h2 class="step-title">Seu Estilo Pessoal</h2>
+                                <p class="step-description">Selecione os estilos que mais combinam com você</p>
+
+                                <div class="form-group">
+                                    <label>Estilos favoritos</label>
+                                    <div class="style-grid" id="styleGrid">
+                                        <div class="style-card" data-style="casual">
+                                            <i class="fas fa-tshirt"></i>
+                                            <span>Casual</span>
+                                        </div>
+                                        <div class="style-card" data-style="elegante">
+                                            <i class="fas fa-user-tie"></i>
+                                            <span>Elegante</span>
+                                        </div>
+                                        <div class="style-card" data-style="boho">
+                                            <i class="fas fa-leaf"></i>
+                                            <span>Boho</span>
+                                        </div>
+                                        <div class="style-card" data-style="minimalista">
+                                            <i class="fas fa-circle"></i>
+                                            <span>Minimalista</span>
+                                        </div>
+                                        <div class="style-card" data-style="streetwear">
+                                            <i class="fas fa-skating"></i>
+                                            <span>Streetwear</span>
+                                        </div>
+                                        <div class="style-card" data-style="vintage">
+                                            <i class="fas fa-history"></i>
+                                            <span>Vintage</span>
+                                        </div>
+                                        <div class="style-card" data-style="rock">
+                                            <i class="fas fa-guitar"></i>
+                                            <span>Rock</span>
+                                        </div>
+                                        <div class="style-card" data-style="romantico">
+                                            <i class="fas fa-heart"></i>
+                                            <span>Romântico</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label>Marcas favoritas <span class="limit-info">(máximo 5)</span></label>
+                                    <div class="tags-input-container">
+                                        <div class="tags-display" id="tagsDisplay"></div>
+                                        <input type="text" id="marcasInput" placeholder="Digite uma marca e pressione Enter">
+                                    </div>
+                                    <div class="input-feedback" id="marcasFeedback"></div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="corFavorita">Cor favorita</label>
+                                    <div class="color-picker">
+                                        <input type="color" id="corFavorita" name="corFavorita" value="#8B5CF6">
+                                        <span class="color-label">Roxo DressCode</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Step 5: Redes Sociais -->
+                            <div class="form-step" data-step="5">
+                                <h2 class="step-title">Redes Sociais</h2>
+                                <p class="step-description">Conecte suas outras redes para ampliar seu networking</p>
+
+                                <div class="form-group">
+                                    <label for="instagram">Instagram</label>
+                                    <div class="input-container social-input">
+                                        <i class="fab fa-instagram"></i>
+                                        <input type="text" id="instagram" name="instagram" placeholder="@seuusuario">
+                                        <div class="input-feedback"></div>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="tiktok">TikTok</label>
+                                    <div class="input-container social-input">
+                                        <i class="fab fa-tiktok"></i>
+                                        <input type="text" id="tiktok" name="tiktok" placeholder="@seuusuario">
+                                        <div class="input-feedback"></div>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="pinterest">Pinterest</label>
+                                    <div class="input-container social-input">
+                                        <i class="fab fa-pinterest"></i>
+                                        <input type="text" id="pinterest" name="pinterest" placeholder="@seuusuario">
+                                        <div class="input-feedback"></div>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="website">Website/Blog pessoal</label>
+                                    <div class="input-container social-input">
+                                        <i class="fas fa-globe"></i>
+                                        <input type="url" id="website" name="website" placeholder="https://seusite.com">
+                                        <div class="input-feedback"></div>
+                                    </div>
+                                </div>
+
+                                <div class="social-privacy">
+                                    <h4>Privacidade das redes sociais</h4>
+                                    <div class="checkbox-group">
+                                        <label class="checkbox-label">
+                                            <input type="checkbox" id="mostrarRedesSociais" name="mostrarRedesSociais" checked>
+                                            <span class="checkmark"></span>
+                                            Mostrar minhas redes sociais no perfil público
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Step 6: Preferências e Privacidade -->
+                            <div class="form-step" data-step="6">
+                                <h2 class="step-title">Preferências e Privacidade</h2>
+                                <p class="step-description">Configure como você quer interagir na plataforma</p>
+
+                                <div class="preferences-section">
+                                    <h4>Notificações</h4>
+                                    <div class="checkbox-group">
+                                        <label class="checkbox-label">
+                                            <input type="checkbox" id="notifEmail" name="notifEmail" checked>
+                                            <span class="checkmark"></span>
+                                            Receber notificações por e-mail
+                                        </label>
+                                        <label class="checkbox-label">
+                                            <input type="checkbox" id="notifSeguidor" name="notifSeguidor" checked>
+                                            <span class="checkmark"></span>
+                                            Notificar quando alguém me seguir
+                                        </label>
+                                        <label class="checkbox-label">
+                                            <input type="checkbox" id="notifCurtida" name="notifCurtida" checked>
+                                            <span class="checkmark"></span>
+                                            Notificar curtidas nos meus posts
+                                        </label>
+                                        <label class="checkbox-label">
+                                            <input type="checkbox" id="notifComentario" name="notifComentario" checked>
+                                            <span class="checkmark"></span>
+                                            Notificar comentários nos meus posts
+                                        </label>
+                                    </div>
+                                </div>
+
+                                <div class="preferences-section">
+                                    <h4>Privacidade do Perfil</h4>
+                                    <div class="radio-group">
+                                        <label class="radio-label">
+                                            <input type="radio" name="privacidadePerfil" value="publico" checked>
+                                            <span class="radio-mark"></span>
+                                            <div class="radio-content">
+                                                <strong>Perfil Público</strong>
+                                                <p>Qualquer pessoa pode ver seu perfil e posts</p>
+                                            </div>
+                                        </label>
+                                        <label class="radio-label">
+                                            <input type="radio" name="privacidadePerfil" value="privado">
+                                            <span class="radio-mark"></span>
+                                            <div class="radio-content">
+                                                <strong>Perfil Privado</strong>
+                                                <p>Apenas seguidores aprovados podem ver seus posts</p>
+                                            </div>
+                                        </label>
+                                    </div>
+                                </div>
+
+                                <div class="preferences-section">
+                                    <h4>Descoberta</h4>
+                                    <div class="checkbox-group">
+                                        <label class="checkbox-label">
+                                            <input type="checkbox" id="aparecer-sugestoes" name="aparecerSugestoes" checked>
+                                            <span class="checkmark"></span>
+                                            Aparecer nas sugestões de usuários para seguir
+                                        </label>
+                                        <label class="checkbox-label">
+                                            <input type="checkbox" id="indexar-busca" name="indexarBusca" checked>
+                                            <span class="checkmark"></span>
+                                            Permitir que meu perfil seja encontrado por busca
+                                        </label>
+                                    </div>
+                                </div>
+
+                                <div class="terms-section">
+                                    <div class="checkbox-group">
+                                        <label class="checkbox-label required">
+                                            <input type="checkbox" id="aceitarTermos" name="aceitarTermos" required>
+                                            <span class="checkmark"></span>
+                                            Eu aceito os <a href="#" target="_blank">Termos de Uso</a> e a <a href="#" target="_blank">Política de Privacidade</a>
+                                        </label>
+                                        <label class="checkbox-label">
+                                            <input type="checkbox" id="newsletter" name="newsletter">
+                                            <span class="checkmark"></span>
+                                            Quero receber novidades e promoções por e-mail
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+
+                        <!-- Navigation Buttons -->
+                        <div class="form-navigation">
+                            <button type="button" class="btn btn-secondary" id="prevBtn" disabled>
+                                <i class="fas fa-chevron-left"></i>
+                                Anterior
+                            </button>
+                            <button type="button" class="btn btn-primary" id="nextBtn">
+                                Próximo
+                                <i class="fas fa-chevron-right"></i>
+                            </button>
+                            <button type="button" class="btn btn-success hidden" id="submitBtn">
+                                <i class="fas fa-check"></i>
+                                Finalizar Cadastro
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Success Modal -->
+    <div class="modal hidden" id="successModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>
+                    <i class="fas fa-check-circle"></i>
+                    Cadastro Concluído!
+                </h2>
+            </div>
+            <div class="modal-body">
+                <p>Parabéns! Seu perfil foi criado com sucesso no DressCode.</p>
+                <div class="profile-summary" id="profileSummary">
+                    <!-- Resumo será preenchido dinamicamente -->
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-primary" id="downloadProfileBtn">
+                    <i class="fas fa-download"></i>
+                    Baixar Perfil (JSON)
+                </button>
+                <button class="btn btn-secondary" id="viewProfileBtn">
+                    <i class="fas fa-eye"></i>
+                    Ver Perfil
+                </button>
+                <button class="btn btn-outline" id="closeModalBtn">
+                    <i class="fas fa-times"></i>
+                    Fechar
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Mobile JavaScript -->
+    <script>
+        // DressCode Mobile App
+        console.log('📱 Iniciando DressCode Mobile...');
+        
+        // Estado da aplicação
+        const AppState = {
+            currentStep: 1,
+            totalSteps: 4,
+            userData: {},
+            selectedStyles: [],
+            selectedBrands: []
+        };
+        
+        // Elementos DOM
+        const Elements = {};
+        
+        // Inicializar aplicação
+        function initApp() {
+            console.log('🚀 Inicializando aplicação mobile...');
+            
+            // Capturar elementos
+            Elements.welcomeScreen = document.getElementById('welcomeScreen');
+            Elements.registrationScreen = document.getElementById('registrationScreen');
+            Elements.successScreen = document.getElementById('successScreen');
+            Elements.btnCriarConta = document.getElementById('btnCriarConta');
+            Elements.btnLogin = document.getElementById('btnLogin');
+            Elements.btnVoltar = document.getElementById('btnVoltar');
+            Elements.btnNext = document.getElementById('btnNext');
+            Elements.btnPrevious = document.getElementById('btnPrevious');
+            Elements.btnFinish = document.getElementById('btnFinish');
+            Elements.mobileForm = document.getElementById('mobileForm');
+            Elements.progressFill = document.getElementById('mobileProgressFill');
+            Elements.currentStepSpan = document.getElementById('currentStep');
+            Elements.menuToggle = document.getElementById('menuToggle');
+            Elements.mobileNav = document.getElementById('mobileNav');
+            
+            // Configurar event listeners
+            setupEventListeners();
+            
+            // Configurar funcionalidades específicas
+            setupPasswordToggle();
+            setupStyleSelection();
+            setupTagSystem();
+            setupCEPLookup();
+            setupFormValidation();
+            
+            console.log('✅ DressCode Mobile inicializado!');
+        }
+        
+        // Configurar todos os event listeners
+        function setupEventListeners() {
+            // Menu mobile
+            if (Elements.menuToggle && Elements.mobileNav) {
+                Elements.menuToggle.addEventListener('click', toggleMobileMenu);
+            }
+            
+            // Navegação principal
+            if (Elements.btnCriarConta) {
+                Elements.btnCriarConta.addEventListener('click', showRegistrationScreen);
+            }
+            
+            if (Elements.btnLogin) {
+                Elements.btnLogin.addEventListener('click', () => {
+                    showMessage('Login será implementado em breve!', 'info');
+                });
+            }
+            
+            // Navegação do wizard
+            if (Elements.btnVoltar) {
+                Elements.btnVoltar.addEventListener('click', showWelcomeScreen);
+            }
+            
+            if (Elements.btnNext) {
+                Elements.btnNext.addEventListener('click', nextStep);
+            }
+            
+            if (Elements.btnPrevious) {
+                Elements.btnPrevious.addEventListener('click', previousStep);
+            }
+            
+            if (Elements.btnFinish) {
+                Elements.btnFinish.addEventListener('click', finishRegistration);
+            }
+            
+            // Success screen
+            const btnStartExploring = document.getElementById('btnStartExploring');
+            const btnDownloadData = document.getElementById('btnDownloadData');
+            
+            if (btnStartExploring) {
+                btnStartExploring.addEventListener('click', () => {
+                    showMessage('Funcionalidade em desenvolvimento!', 'info');
+                    showWelcomeScreen();
+                });
+            }
+            
+            if (btnDownloadData) {
+                btnDownloadData.addEventListener('click', downloadUserData);
+            }
+        }
+        
+        // Toggle do menu mobile
+        function toggleMobileMenu() {
+            Elements.mobileNav.classList.toggle('hidden');
+        }
+        
+        // Mostrar tela de boas-vindas
+        function showWelcomeScreen() {
+            Elements.welcomeScreen.classList.remove('hidden');
+            Elements.registrationScreen.classList.add('hidden');
+            Elements.successScreen.classList.add('hidden');
+            
+            // Reset do formulário
+            AppState.currentStep = 1;
+            AppState.userData = {};
+            AppState.selectedStyles = [];
+            AppState.selectedBrands = [];
+            
+            if (Elements.mobileForm) {
+                Elements.mobileForm.reset();
+            }
+        }
+        
+        // Mostrar tela de cadastro
+        function showRegistrationScreen() {
+            Elements.welcomeScreen.classList.add('hidden');
+            Elements.registrationScreen.classList.remove('hidden');
+            Elements.successScreen.classList.add('hidden');
+            
+            updateStepDisplay();
+            updateProgressBar();
+        }
+        
+        // Próximo passo
+        function nextStep() {
+            if (validateCurrentStep()) {
+                collectStepData();
+                
+                if (AppState.currentStep < AppState.totalSteps) {
+                    AppState.currentStep++;
+                    updateStepDisplay();
+                    updateProgressBar();
+                    updateNavigationButtons();
+                }
+            }
+        }
+        
+        // Passo anterior
+        function previousStep() {
+            if (AppState.currentStep > 1) {
+                AppState.currentStep--;
+                updateStepDisplay();
+                updateProgressBar();
+                updateNavigationButtons();
+            }
+        }
+        
+        // Atualizar exibição do passo
+        function updateStepDisplay() {
+            const steps = document.querySelectorAll('.form-step');
+            
+            steps.forEach((step, index) => {
+                if (index + 1 === AppState.currentStep) {
+                    step.classList.add('active');
+                } else {
+                    step.classList.remove('active');
+                }
+            });
+            
+            if (Elements.currentStepSpan) {
+                Elements.currentStepSpan.textContent = AppState.currentStep;
+            }
+        }
+        
+        // Atualizar barra de progresso
+        function updateProgressBar() {
+            const progress = (AppState.currentStep / AppState.totalSteps) * 100;
+            if (Elements.progressFill) {
+                Elements.progressFill.style.width = progress + '%';
+            }
+        }
+        
+        // Atualizar botões de navegação
+        function updateNavigationButtons() {
+            // Botão Previous
+            if (AppState.currentStep === 1) {
+                Elements.btnPrevious?.classList.add('hidden');
+            } else {
+                Elements.btnPrevious?.classList.remove('hidden');
+            }
+            
+            // Botões Next/Finish
+            if (AppState.currentStep === AppState.totalSteps) {
+                Elements.btnNext?.classList.add('hidden');
+                Elements.btnFinish?.classList.remove('hidden');
+            } else {
+                Elements.btnNext?.classList.remove('hidden');
+                Elements.btnFinish?.classList.add('hidden');
+            }
+        }
+        
+        // Validar passo atual
+        function validateCurrentStep() {
+            const currentStepElement = document.querySelector(`[data-step="${AppState.currentStep}"]`);
+            const requiredInputs = currentStepElement.querySelectorAll('input[required], select[required]');
+            let isValid = true;
+            
+            requiredInputs.forEach(input => {
+                if (!input.value.trim()) {
+                    showInputError(input, 'Campo obrigatório');
+                    isValid = false;
+                } else {
+                    clearInputError(input);
+                }
+            });
+            
+            // Validações específicas por step
+            if (AppState.currentStep === 1) {
+                isValid = validateStep1() && isValid;
+            } else if (AppState.currentStep === 4) {
+                const termos = document.getElementById('aceitarTermos');
+                if (!termos.checked) {
+                    showMessage('É obrigatório aceitar os termos de uso', 'error');
+                    isValid = false;
+                }
+            }
+            
+            return isValid;
+        }
+        
+        // Validar step 1 (credenciais)
+        function validateStep1() {
+            const email = document.getElementById('email');
+            const password = document.getElementById('password');
+            const confirmPassword = document.getElementById('confirmPassword');
+            let isValid = true;
+            
+            // Validar email
+            if (email.value && !isValidEmail(email.value)) {
+                showInputError(email, 'Email inválido');
+                isValid = false;
+            }
+            
+            // Validar senha
+            if (password.value.length < 8) {
+                showInputError(password, 'Senha deve ter pelo menos 8 caracteres');
+                isValid = false;
+            }
+            
+            // Validar confirmação
+            if (password.value !== confirmPassword.value) {
+                showInputError(confirmPassword, 'Senhas não coincidem');
+                isValid = false;
+            }
+            
+            return isValid;
+        }
+        
+        // Coletar dados do passo atual
+        function collectStepData() {
+            const currentStepElement = document.querySelector(`[data-step="${AppState.currentStep}"]`);
+            const inputs = currentStepElement.querySelectorAll('input, select');
+            
+            inputs.forEach(input => {
+                if (input.type === 'checkbox' || input.type === 'radio') {
+                    if (input.checked) {
+                        AppState.userData[input.name || input.id] = input.value;
+                    }
+                } else {
+                    AppState.userData[input.id] = input.value;
+                }
+            });
+            
+            // Dados especiais
+            AppState.userData.selectedStyles = AppState.selectedStyles;
+            AppState.userData.selectedBrands = AppState.selectedBrands;
+        }
+        
+        // Finalizar cadastro
+        function finishRegistration() {
+            if (validateCurrentStep()) {
+                collectStepData();
+                
+                // Criar objeto usuário final
+                const userData = {
+                    id: generateId(),
+                    ...AppState.userData,
+                    createdAt: new Date().toISOString()
+                };
+                
+                // Salvar no localStorage
+                saveUserData(userData);
+                
+                // Mostrar tela de sucesso
+                showSuccessScreen(userData);
+            }
+        }
+        
+        // Mostrar tela de sucesso
+        function showSuccessScreen(userData) {
+            Elements.welcomeScreen.classList.add('hidden');
+            Elements.registrationScreen.classList.add('hidden');
+            Elements.successScreen.classList.remove('hidden');
+            
+            // Preencher preview do usuário
+            const userPreview = document.getElementById('userPreview');
+            if (userPreview) {
+                userPreview.innerHTML = `
+                    <div class="user-info">
+                        <div class="user-avatar">
+                            <i class="fas fa-user-circle"></i>
+                        </div>
+                        <div class="user-details">
+                            <h3>@${userData.username}</h3>
+                            <p>${userData.nomeCompleto}</p>
+                            <div class="user-stats">
+                                <span class="stat">
+                                    <i class="fas fa-palette"></i>
+                                    ${userData.selectedStyles.length} estilos
+                                </span>
+                                <span class="stat">
+                                    <i class="fas fa-heart"></i>
+                                    ${userData.selectedBrands.length} marcas
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            }
+        }
+        
+        // Salvar dados do usuário
+        function saveUserData(userData) {
+            try {
+                let users = JSON.parse(localStorage.getItem('dresscode_users') || '[]');
+                users.push(userData);
+                localStorage.setItem('dresscode_users', JSON.stringify(users));
+                console.log('✅ Usuário salvo com sucesso:', userData.username);
+            } catch (error) {
+                console.error('❌ Erro ao salvar usuário:', error);
+                showMessage('Erro ao salvar dados. Tente novamente.', 'error');
+            }
+        }
+        
+        // Download dos dados do usuário
+        function downloadUserData() {
+            const userData = AppState.userData;
+            const dataStr = JSON.stringify(userData, null, 2);
+            const dataUri = 'data:application/json;charset=utf-8,'+ encodeURIComponent(dataStr);
+            
+            const exportFileDefaultName = `dresscode_${userData.username}_${new Date().toISOString().split('T')[0]}.json`;
+            
+            const linkElement = document.createElement('a');
+            linkElement.setAttribute('href', dataUri);
+            linkElement.setAttribute('download', exportFileDefaultName);
+            linkElement.click();
+        }
+        
+        // Configurar toggle de senha
+        function setupPasswordToggle() {
+            const togglePassword = document.getElementById('togglePassword');
+            const passwordInput = document.getElementById('password');
+            
+            if (togglePassword && passwordInput) {
+                togglePassword.addEventListener('click', () => {
+                    const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+                    passwordInput.setAttribute('type', type);
+                    
+                    const icon = togglePassword.querySelector('i');
+                    icon.classList.toggle('fa-eye');
+                    icon.classList.toggle('fa-eye-slash');
+                });
+            }
+        }
+        
+        // Configurar seleção de estilos
+        function setupStyleSelection() {
+            const stylesGrid = document.getElementById('stylesGrid');
+            if (!stylesGrid) return;
+            
+            stylesGrid.addEventListener('click', (e) => {
+                const styleCard = e.target.closest('.style-card');
+                if (!styleCard) return;
+                
+                const style = styleCard.dataset.style;
+                
+                if (styleCard.classList.contains('selected')) {
+                    styleCard.classList.remove('selected');
+                    AppState.selectedStyles = AppState.selectedStyles.filter(s => s !== style);
+                } else {
+                    styleCard.classList.add('selected');
+                    AppState.selectedStyles.push(style);
+                }
+            });
+        }
+        
+        // Sistema de tags para marcas
+        function setupTagSystem() {
+            const marcaInput = document.getElementById('marcaInput');
+            const btnAddTag = document.getElementById('btnAddTag');
+            const tagsList = document.getElementById('tagsList');
+            const tagCounter = document.getElementById('tagCounter');
+            
+            if (!marcaInput || !btnAddTag) return;
+            
+            function addTag() {
+                const marca = marcaInput.value.trim();
+                if (marca && AppState.selectedBrands.length < 5 && !AppState.selectedBrands.includes(marca)) {
+                    AppState.selectedBrands.push(marca);
+                    renderTags();
+                    marcaInput.value = '';
+                } else if (AppState.selectedBrands.length >= 5) {
+                    showMessage('Máximo 5 marcas permitido', 'error');
+                }
+            }
+            
+            function renderTags() {
+                if (tagsList) {
+                    tagsList.innerHTML = '';
+                    AppState.selectedBrands.forEach((marca, index) => {
+                        const tag = document.createElement('div');
+                        tag.className = 'tag-item';
+                        tag.innerHTML = `
+                            <span>${marca}</span>
+                            <button type="button" class="remove-tag" onclick="removeTag(${index})">
+                                <i class="fas fa-times"></i>
+                            </button>
+                        `;
+                        tagsList.appendChild(tag);
+                    });
+                }
+                
+                if (tagCounter) {
+                    tagCounter.textContent = AppState.selectedBrands.length;
+                }
+            }
+            
+            // Função global para remover tag
+            window.removeTag = function(index) {
+                AppState.selectedBrands.splice(index, 1);
+                renderTags();
+            };
+            
+            btnAddTag.addEventListener('click', addTag);
+            marcaInput.addEventListener('keydown', (e) => {
+                if (e.key === 'Enter') {
+                    e.preventDefault();
+                    addTag();
+                }
+            });
+        }
+        
+        // Busca de CEP
+        function setupCEPLookup() {
+            const cepInput = document.getElementById('cep');
+            const cepLoading = document.getElementById('cepLoading');
+            
+            if (!cepInput) return;
+            
+            // Máscara para CEP
+            cepInput.addEventListener('input', (e) => {
+                let value = e.target.value.replace(/\D/g, '');
+                if (value.length <= 8) {
+                    if (value.length > 5) {
+                        value = value.replace(/(\d{5})(\d{0,3})/, '$1-$2');
+                    }
+                    e.target.value = value;
+                    
+                    // Buscar CEP quando completo
+                    if (value.replace(/\D/g, '').length === 8) {
+                        searchCEP(value.replace(/\D/g, ''));
+                    }
+                }
+            });
+            
+            async function searchCEP(cep) {
+                if (cepLoading) cepLoading.classList.remove('hidden');
+                
+                try {
+                    const response = await fetch(`https://viacep.com.br/ws/${cep}/json/`);
+                    const data = await response.json();
+                    
+                    if (!data.erro) {
+                        document.getElementById('cidade').value = data.localidade || '';
+                        document.getElementById('estado').value = data.uf || '';
+                        showInputSuccess(cepInput, `${data.localidade}, ${data.uf}`);
+                    } else {
+                        showInputError(cepInput, 'CEP não encontrado');
+                    }
+                } catch (error) {
+                    showInputError(cepInput, 'Erro ao buscar CEP');
+                    console.error('Erro CEP:', error);
+                } finally {
+                    if (cepLoading) cepLoading.classList.add('hidden');
+                }
+            }
+        }
+        
+        // Configurar validação em tempo real
+        function setupFormValidation() {
+            const inputs = document.querySelectorAll('input[required]');
+            inputs.forEach(input => {
+                input.addEventListener('blur', () => {
+                    if (input.value.trim()) {
+                        clearInputError(input);
+                    }
+                });
+            });
+        }
+        
+        // Utilitários
+        function isValidEmail(email) {
+            return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+        }
+        
+        function generateId() {
+            return 'user_' + Date.now() + '_' + Math.random().toString(36).substr(2, 9);
+        }
+        
+        function showInputError(input, message) {
+            input.classList.add('error');
+            const feedback = input.closest('.input-group')?.querySelector('.input-feedback');
+            if (feedback) {
+                feedback.textContent = message;
+                feedback.className = 'input-feedback error';
+            }
+        }
+        
+        function showInputSuccess(input, message) {
+            input.classList.remove('error');
+            input.classList.add('success');
+            const feedback = input.closest('.input-group')?.querySelector('.input-feedback');
+            if (feedback) {
+                feedback.textContent = message;
+                feedback.className = 'input-feedback success';
+            }
+        }
+        
+        function clearInputError(input) {
+            input.classList.remove('error');
+            const feedback = input.closest('.input-group')?.querySelector('.input-feedback');
+            if (feedback) {
+                feedback.textContent = '';
+                feedback.className = 'input-feedback';
+            }
+        }
+        
+        function showMessage(message, type = 'info') {
+            const messageDiv = document.createElement('div');
+            messageDiv.className = `message-toast ${type}`;
+            messageDiv.textContent = message;
+            messageDiv.style.cssText = `
+                position: fixed;
+                top: 20px;
+                right: 20px;
+                background: ${type === 'error' ? '#EF4444' : type === 'success' ? '#10B981' : '#3B82F6'};
+                color: white;
+                padding: 12px 20px;
+                border-radius: 8px;
+                z-index: 9999;
+                box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            `;
+            
+            document.body.appendChild(messageDiv);
+            
+            setTimeout(() => {
+                messageDiv.remove();
+            }, 3000);
+        }
+        
+        // Inicializar quando DOM estiver pronto
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', initApp);
+        } else {
+            initApp();
+        }
+    </script>
+</body>
+</html>
